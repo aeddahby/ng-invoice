@@ -1,0 +1,40 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="factures">
+      <h2 data-cy="facturesDetailsHeading"><span jhiTranslate="ngInvoiceApp.factures.detail.title">Factures</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ factures.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="ngInvoiceApp.factures.object">Object</span></dt>
+        <dd>
+          <span>{{ factures.object }}</span>
+        </dd>
+        <dt><span jhiTranslate="ngInvoiceApp.factures.description">Description</span></dt>
+        <dd>
+          <span>{{ factures.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="ngInvoiceApp.factures.creationDate">Creation Date</span></dt>
+        <dd>
+          <span>{{ factures.creationDate }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/factures', factures.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
